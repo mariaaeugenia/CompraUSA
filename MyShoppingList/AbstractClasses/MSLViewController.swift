@@ -1,14 +1,24 @@
-//
-//  MSLViewController.swift
-//  MyShoppingList
-//
-//  Created by Maria Eugênia Pereira Teixeira on 03/03/20.
-//  Copyright © 2020 Maria Eugênia Pereira Teixeira. All rights reserved.
-//
 
 import UIKit
 
-class MSLViewController: UIViewController, ViewSetup {
+class MSLViewController<T: MSLViewModel>: UIViewController, ViewSetup {
+    
+    var vm: T
+    
+    convenience init(_ viewModel: T) {
+        self.init()
+        vm = viewModel
+    }
+
+    required public init() {
+        vm = .init()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        vm = .init()
+        super.init(coder: aDecoder)
+    }
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -19,5 +29,4 @@ class MSLViewController: UIViewController, ViewSetup {
     func addViewHierarchy() {}
     func setupConstraints() {}
     func configureViews() {}
-    func configureBindings() {}
 }

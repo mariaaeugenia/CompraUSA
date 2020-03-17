@@ -1,18 +1,12 @@
-//
-//  ShoppingTableViewController.swift
-//  MyShoppingList
-//
-//  Created by Maria Eugênia Pereira Teixeira on 03/03/20.
-//  Copyright © 2020 Maria Eugênia Pereira Teixeira. All rights reserved.
-//
 
 import UIKit
 
-class ShoppingTableViewController: UITableViewController {
+class ShoppingTableViewController: MSLTableViewController<ShoppingViewModel> {
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureNavigation()
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
         self.navigationItem.rightBarButtonItem = addButton

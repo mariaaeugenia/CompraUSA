@@ -6,6 +6,8 @@ target 'MyShoppingList' do
   # Comment the next line if you don't want to use dynamic frameworks
   
   pod 'SnapKit', '~> 5.0.0'
+  pod 'RealmSwift'
+  pod 'IQKeyboardManagerSwift'
   # Pods for MyShoppingList
 
 end
