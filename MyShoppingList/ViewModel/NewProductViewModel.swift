@@ -10,7 +10,9 @@ class NewProductViewModel: MSLViewModel {
         get { return states.count }
     }
     
-    required init() {}
+    required init() {
+        getState()
+    }
     
     func save(product: Product, completion: (() -> Void)) {
         let manager = ProductRepository()
@@ -19,7 +21,7 @@ class NewProductViewModel: MSLViewModel {
         manager.save(object: newProduct)
     }
     
-    func getState() {
+    private func getState() {
         let manager = StateReposioty()
         manager.fetch { [weak self] result in
             self?.states = result
@@ -27,7 +29,9 @@ class NewProductViewModel: MSLViewModel {
     }
     
     func didSelectState(at index: Int) {
-        selectedState = states[index]
+        if states.count > 0 && index < states.count{
+            selectedState = states[index]
+        }
     }
     
 }

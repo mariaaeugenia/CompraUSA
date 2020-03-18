@@ -17,9 +17,6 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
     private var cardSwitch: UISwitch!
     private var saveButton: UIButton!
     
-    private var stateView: UIView!
-    private var cancelButton: UIButton!
-    private var doneButton: UIButton!
     private var statePickerView: UIPickerView!
     
     
@@ -44,9 +41,6 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
         stateStackView = .init()
         valueStackView = .init()
         
-        stateView = .init()
-        cancelButton = .init()
-        doneButton = .init()
         statePickerView = .init()
     }
     
@@ -63,19 +57,12 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
             cardSwitch
         ])
         
-        stateView.addSubviews([
-            cancelButton,
-            doneButton,
-            statePickerView
-        ])
-        
         view.addSubviews([
             productTextField,
             productImageView,
             stateStackView,
             valueStackView,
-            saveButton,
-            stateView
+            saveButton
         ])
     }
     
@@ -125,38 +112,16 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
             make.height.equalTo(50)
         }
         
-        stateView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().inset(UIWindow.getSafeAreaInsets().bottom+50)
-            make.height.equalTo(200)
-        }
-        
-        statePickerView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-            make.top.equalToSuperview().offset(40)
-        }
-        
-        cancelButton.snp.makeConstraints { make in
-            make.top.equalTo(5)
-            make.left.equalToSuperview().offset(16)
-            make.height.equalTo(36)
-        }
-        
-        doneButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(16)
-            make.height.equalTo(36)
-            make.centerY.equalTo(cancelButton.snp.centerY)
-        }
-        
     }
 
     override func configureViews() {
         configureProductTextField()
+        configureProductImageView()
         configureAddButton()
         configureState()
         configuereValue()
         configureSaveButton()
-        configureStateView()
+        configurePickerView()
     }
     
     private func configureProductTextField() {
@@ -164,9 +129,17 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
         productTextField.borderStyle = .roundedRect
     }
     
+    private func configureProductImageView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProductImage(_ :)))
+        productImageView.addGestureRecognizer(tapGesture)
+        productImageView.contentMode = .scaleAspectFit
+        productImageView.clipsToBounds = true
+    }
+    
     private func configureState() {
         stateTextField.placeholder = "Estado da compra"
         stateTextField.borderStyle = .roundedRect
+        stateTextField.inputView = statePickerView
         
         stateStackView.axis = .horizontal
         stateStackView.alignment = .center
@@ -203,37 +176,23 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
         saveButton.addTarget(self, action: #selector(saveButtonTapped(_ :)), for: .touchUpInside)
     }
     
-    private func configureStateView() {
-        stateView.backgroundColor = .lightGray
-        stateView.isHidden = true
-        
-        cancelButton.setTitle("Cancelar", for: .normal)
-        cancelButton.setTitleColor(.blue, for: .normal)
-        cancelButton.addTarget(self, action: #selector(cancelButtonTapped(_ :)), for: .touchUpInside)
-        
-        doneButton.setTitle("Pronto", for: .normal)
-        doneButton.setTitleColor(.blue, for: .normal)
-        doneButton.addTarget(self, action: #selector(doneButtonTapped(_ :)), for: .touchUpInside)
-        
+    private func configurePickerView() {
         statePickerView.backgroundColor = .white
         statePickerView.delegate = self
         statePickerView.dataSource = self
+        statePickerView.reloadAllComponents()
     }
     
     //MARK: -
     //MARK: - BUTTON ACTIONS
+    @objc private func didTapProductImage(_ gestureRecognizer: UITapGestureRecognizer) {
+        
+    }
+    
     @objc private func addStateTapped(_ sender: UIButton) {
-        statePickerView.reloadAllComponents()
-        stateView.isHidden = false
+        tabBarController?.selectedIndex = 1
     }
     
-    @objc private func cancelButtonTapped(_ sender: UIButton) {
-        stateView.isHidden = true
-    }
-    
-    @objc private func doneButtonTapped(_ sender: UIButton) {
-        vm.didSelectState(at: stateIndex)
-    }
     
     @objc private func saveButtonTapped(_ sender: UIButton) {
         let product = Product()
@@ -247,6 +206,10 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        vm.didSelectState(at: stateIndex)
+    }
+
 }
 
 
