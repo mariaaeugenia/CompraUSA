@@ -22,6 +22,7 @@
 		546505E5242056860046DA36 /* ShoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505E4242056860046DA36 /* ShoppingViewModel.swift */; };
 		546505E72420585B0046DA36 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505E62420585B0046DA36 /* UIWindow+Extensions.swift */; };
 		54AD6ECA2424441E0011924D /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6EC92424441E0011924D /* PermissionManager.swift */; };
+		54AD6ECD24245D200011924D /* MSLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6ECC24245D200011924D /* MSLTextField.swift */; };
 		54CB05B1240F2B9A00FD7184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05B0240F2B9A00FD7184 /* AppDelegate.swift */; };
 		54CB05B5240F2B9A00FD7184 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05B4240F2B9A00FD7184 /* MainViewController.swift */; };
 		54CB05BA240F2B9D00FD7184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54CB05B9240F2B9D00FD7184 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		546505E4242056860046DA36 /* ShoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewModel.swift; sourceTree = "<group>"; };
 		546505E62420585B0046DA36 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		54AD6EC92424441E0011924D /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		54AD6ECC24245D200011924D /* MSLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLTextField.swift; sourceTree = "<group>"; };
 		54CB05AD240F2B9A00FD7184 /* MyShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54CB05B0240F2B9A00FD7184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54CB05B4240F2B9A00FD7184 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -119,9 +121,18 @@
 		54AD6EC82424440E0011924D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				54AD6ECB24245D0D0011924D /* CustomViews */,
 				54AD6EC92424441E0011924D /* PermissionManager.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		54AD6ECB24245D0D0011924D /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				54AD6ECC24245D200011924D /* MSLTextField.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		54CB05A4240F2B9A00FD7184 = {
@@ -338,6 +349,7 @@
 				54CB05B5240F2B9A00FD7184 /* MainViewController.swift in Sources */,
 				546505C5241EBF4B0046DA36 /* StackView+Extensions.swift in Sources */,
 				54CB05C9240F2D2400FD7184 /* TotalShoppingViewController.swift in Sources */,
+				54AD6ECD24245D200011924D /* MSLTextField.swift in Sources */,
 				546505DF242052750046DA36 /* MSLViewModel.swift in Sources */,
 				54CB05D7240F37A600FD7184 /* MSLTableViewController.swift in Sources */,
 				54CB05CF240F36AC00FD7184 /* ViewSetup.swift in Sources */,
