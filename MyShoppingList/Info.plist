@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>MyShoppingList deseja usar sua câmera para tirar foto do produto</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>MyShoppingList desejater acesso à sua biblioteca de fotos para salvar a foto do produto</string>
 </dict>
 </plist>

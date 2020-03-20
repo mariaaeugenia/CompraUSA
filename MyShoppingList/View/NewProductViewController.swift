@@ -1,6 +1,7 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
 
 class NewProductViewController: MSLViewController<NewProductViewModel> {
 
@@ -19,8 +20,8 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
     
     private var statePickerView: UIPickerView!
     
-    
-    var stateIndex = 0
+    private var permissionManager = PermissionsManager()
+    private var stateIndex = 0
     
     //MARK: -
     //MARK: - VIEW CODE LIFE CYCLE
@@ -131,9 +132,12 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
     
     private func configureProductImageView() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProductImage(_ :)))
+        productImageView.isUserInteractionEnabled = true
         productImageView.addGestureRecognizer(tapGesture)
         productImageView.contentMode = .scaleAspectFit
         productImageView.clipsToBounds = true
+        productImageView.image = UIImage(named: "placeholder")
+        permissionManager.delegate = self
     }
     
     private func configureState() {
@@ -186,7 +190,7 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
     //MARK: -
     //MARK: - BUTTON ACTIONS
     @objc private func didTapProductImage(_ gestureRecognizer: UITapGestureRecognizer) {
-        
+        showActionSheetForImagePicker()
     }
     
     @objc private func addStateTapped(_ sender: UIButton) {
@@ -208,6 +212,34 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         vm.didSelectState(at: stateIndex)
+        view.endEditing(true)
+    }
+    
+    private func showActionSheetForImagePicker() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Câmera", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+            if self.permissionManager.hasCameraPermission() {
+                self.openImagePicker(for: .camera)
+            }
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Galeria", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+            if self.permissionManager.hasPhotoLibraryPermission() {
+                self.openImagePicker(for: .photoLibrary)
+            }
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        self.navigationController?.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func openImagePicker(for type: UIImagePickerController.SourceType) {
+        DispatchQueue.main.async {
+            if UIImagePickerController.isSourceTypeAvailable(type) {
+                let myPickerController = UIImagePickerController()
+                myPickerController.delegate = self
+                myPickerController.sourceType = type
+                self.navigationController?.present(myPickerController, animated: true, completion: nil)
+            }
+        }
     }
 
 }
@@ -225,5 +257,34 @@ extension NewProductViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         stateIndex = row
     }
+    
+}
+
+extension NewProductViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            self.productImageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension NewProductViewController: PermissionDelegate {
+    func updateCameraPermission(for granted: Bool) {
+        if granted {
+            self.openImagePicker(for: .camera)
+        }
+    }
+    
+    func updatePhotoLibraryPermission(for granted: Bool) {
+        if granted {
+            self.openImagePicker(for: .photoLibrary)
+        }
+    }
+    
     
 }
