@@ -68,7 +68,7 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
     override func setupConstraints() {
         
         productTextField.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
+            make.top.equalToSuperview().offset(UIWindow.getSafeAreaInsets().top + 60)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
@@ -203,6 +203,7 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         vm.didSelectState(at: stateIndex)
+        stateTextField.text = vm.selectedState.name
         view.endEditing(true)
     }
     
@@ -246,6 +247,11 @@ extension NewProductViewController: UIPickerViewDelegate, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
          return vm.statesNumberOfRows
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let state = vm.states[row].name
+        return state
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

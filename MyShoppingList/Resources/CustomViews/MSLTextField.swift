@@ -22,6 +22,6 @@ class MSLTextField: UITextField {
     
     func setup() {
         borderStyle = .roundedRect
-        backgroundColor = .white
+        textColor = .black
     }
 }

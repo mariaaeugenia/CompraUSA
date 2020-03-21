@@ -3,8 +3,8 @@ import Foundation
 
 class NewProductViewModel: MSLViewModel {
     
-    var states = [States]()
-    var selectedState = States()
+    var states = [State]()
+    var selectedState = State()
     
     var statesNumberOfRows: Int {
         get { return states.count }

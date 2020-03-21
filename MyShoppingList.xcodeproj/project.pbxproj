@@ -11,7 +11,7 @@
 		546505CB241EF3C50046DA36 /* NewProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505CA241EF3C50046DA36 /* NewProductViewModel.swift */; };
 		546505CE241F098E0046DA36 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505CD241F098E0046DA36 /* Product.swift */; };
 		546505D02420446E0046DA36 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505CF2420446E0046DA36 /* String+Extension.swift */; };
-		546505D4242045370046DA36 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505D3242045370046DA36 /* States.swift */; };
+		546505D4242045370046DA36 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505D3242045370046DA36 /* State.swift */; };
 		546505D9242045A10046DA36 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505D6242045A00046DA36 /* Repository.swift */; };
 		546505DA242045A10046DA36 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505D7242045A00046DA36 /* ProductRepository.swift */; };
 		546505DB242045A10046DA36 /* StateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505D8242045A10046DA36 /* StateRepository.swift */; };
@@ -45,7 +45,7 @@
 		546505CA241EF3C50046DA36 /* NewProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewModel.swift; sourceTree = "<group>"; };
 		546505CD241F098E0046DA36 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		546505CF2420446E0046DA36 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		546505D3242045370046DA36 /* States.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
+		546505D3242045370046DA36 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		546505D6242045A00046DA36 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		546505D7242045A00046DA36 /* ProductRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		546505D8242045A10046DA36 /* StateRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateRepository.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				546505CD241F098E0046DA36 /* Product.swift */,
-				546505D3242045370046DA36 /* States.swift */,
+				546505D3242045370046DA36 /* State.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				54AD6ECA2424441E0011924D /* PermissionManager.swift in Sources */,
 				546505E72420585B0046DA36 /* UIWindow+Extensions.swift in Sources */,
 				546505E1242055960046DA36 /* TotalShoppingViewModel.swift in Sources */,
-				546505D4242045370046DA36 /* States.swift in Sources */,
+				546505D4242045370046DA36 /* State.swift in Sources */,
 				546505D9242045A10046DA36 /* Repository.swift in Sources */,
 				54CB05D2240F370C00FD7184 /* UIView+Extensions.swift in Sources */,
 				54CB05C7240F2D0800FD7184 /* AdjustsViewController.swift in Sources */,

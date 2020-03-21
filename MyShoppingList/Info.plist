@@ -43,5 +43,7 @@
 	<string>MyShoppingList deseja usar sua câmera para tirar foto do produto</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>MyShoppingList desejater acesso à sua biblioteca de fotos para salvar a foto do produto</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

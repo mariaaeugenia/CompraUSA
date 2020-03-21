@@ -11,9 +11,15 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
     private var iofStackView: UIStackView!
     private var iofLabel: UILabel!
     private var iofTextField: MSLTextField!
+    private var dolarIofStackView: UIStackView!
     private var titleLabel: UILabel!
     private var tableView: UITableView!
     private var addStateButton: UIButton!
+    
+    private var stateTextField: UITextField!
+    private var taxTextField: UITextField!
+    
+    var viewModel = AdjustsViewModel()
     
     //MARK: -
     //MARK: - VIEW CODE LIFE CYCLE
@@ -24,6 +30,7 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
         iofStackView = .init()
         iofTextField = .init()
         iofLabel = .init()
+        dolarIofStackView = .init()
         titleLabel = .init()
         tableView = .init()
         addStateButton = .init()
@@ -40,9 +47,13 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
             iofTextField
         ])
         
-        view.addSubviews([
+        dolarIofStackView.addArrangedSubviews([
             dolarStackView,
-            iofStackView,
+            iofStackView
+        ])
+        
+        view.addSubviews([
+            dolarIofStackView,
             titleLabel,
             tableView,
             addStateButton
@@ -51,32 +62,36 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
     
     override func setupConstraints() {
         
-        dolarStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(30)
-            make.left.right.equalToSuperview().offset(20)
+        dolarValueTextField.snp.makeConstraints { make in
+            make.width.equalTo(view.frame.width*0.3)
             make.height.equalTo(40)
         }
         
-        iofStackView.snp.makeConstraints { make in
-            make.top.equalTo(dolarStackView.snp.bottom).offset(20)
-            make.left.right.equalToSuperview().offset(16)
+        iofTextField.snp.makeConstraints { make in
+            make.width.equalTo(view.frame.width*0.3)
             make.height.equalTo(40)
         }
+    
+        dolarIofStackView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(UIWindow.getSafeAreaInsets().top + 20)
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().inset(16)
+        }
         
-        iofLabel.snp.makeConstraints { make in
-            make.top.equalTo(iofStackView.snp.bottom).offset(30)
-            make.centerY.equalToSuperview()
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(dolarIofStackView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(iofLabel.snp.bottom).offset(20)
-            make.left.right.equalToSuperview().offset(16)
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(addStateButton.snp.top).offset(16)
         }
         
         addStateButton.snp.makeConstraints { make in
-            make.top.equalTo(tableView.snp.bottom).offset(16)
-            make.bottom.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().inset(UIWindow.getSafeAreaInsets().bottom + 60)
+            make.right.equalToSuperview().inset(16)
             make.height.equalTo(35)
         }
     }
@@ -85,7 +100,10 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
         view.backgroundColor = .white
         configureDolarViews()
         configureIOFViews()
+        configureStackView()
         configureTitleLabel()
+        confirgureTableView()
+        configureAddStateButton()
     }
     
     private func configureDolarViews() {
@@ -94,11 +112,6 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
         
         dolarValueTextField.textAlignment = .right
         dolarValueTextField.placeholder = "0.0"
-        
-        dolarStackView.axis = .horizontal
-        dolarStackView.alignment = .center
-        dolarStackView.distribution = .equalCentering
-        dolarStackView.spacing = 10
     }
     
     private func configureIOFViews() {
@@ -109,9 +122,63 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
         iofTextField.placeholder = "0.0"
     }
     
+    private func configureStackView() {
+        dolarStackView.alignment = .center
+        dolarStackView.distribution = .fill
+        dolarStackView.axis = .horizontal
+        dolarStackView.spacing = 10
+        
+        iofStackView.alignment = .center
+        iofStackView.distribution = .fill
+        iofStackView.axis = .horizontal
+        iofStackView.spacing = 10
+        
+        dolarIofStackView.axis = .vertical
+        dolarIofStackView.alignment = .fill
+        dolarIofStackView.distribution = .fillEqually
+        dolarIofStackView.spacing = 20
+    }
+    
     private func configureTitleLabel() {
         titleLabel.text = "Impostos por estado"
         titleLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
+        titleLabel.textColor = .black
+    }
+    
+    private func confirgureTableView() {
+        tableView.tableFooterView = UIView()
+    }
+    
+    private func configureAddStateButton() {
+        addStateButton.setTitle("Adicionar estado", for: .normal)
+        addStateButton.setTitleColor(.link, for: .normal)
+        addStateButton.addTarget(self, action: #selector(addStateButtonTapped(_ :)), for: .touchUpInside)
+    }
+    
+    @objc func addStateButtonTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Adicionar estado", message: "", preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            self.stateTextField = textField
+        }
+        
+        alert.addTextField { textField in
+            self.taxTextField = textField
+        }
+        
+        alert.addAction(UIAlertAction(title: "Adicionar", style: .default, handler: { [weak self] _ in
+            self?.saveState()
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func saveState() {
+        if let state = stateTextField.text, !state.isEmpty,
+            let tax = taxTextField.text, !tax.isEmpty {
+            viewModel.saveState(state: state, tax: tax)
+        }
     }
 
 }
+
