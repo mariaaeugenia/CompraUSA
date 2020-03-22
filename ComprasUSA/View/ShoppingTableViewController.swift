@@ -3,17 +3,27 @@ import UIKit
 
 class ShoppingTableViewController: TableViewController<ShoppingViewModel> {
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        vm.getProducts()
+    }
+    
+    override func configureViews() {
+        vm.presenter = self
         configureNavigation()
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
         self.navigationItem.rightBarButtonItem = addButton
+        configureTableView()
     }
     
     func configureNavigation() {
         self.navigationItem.title = "Lista de Compras"
+    }
+    
+    func configureTableView() {
+        tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: "CELL")
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = 110
     }
 
     @objc func addButtonTapped(_ sender: UIBarButtonItem) {
@@ -23,18 +33,18 @@ class ShoppingTableViewController: TableViewController<ShoppingViewModel> {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return vm.productsNumberOfRows
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        return vm.cellForRow(tableView: tableView, at: indexPath)
     }
-    */
 
+}
+
+extension ShoppingTableViewController: ProductPresentable {
+    
+    func relodTableView() {
+        tableView.reloadData()
+    }
 }
