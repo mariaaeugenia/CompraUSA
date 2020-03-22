@@ -212,13 +212,23 @@ class NewProductViewController: ViewController<NewProductViewModel> {
     }
     
     @objc private func saveButtonTapped(_ sender: UIButton) {
-        let product = Product()
-        product.name = productTextField.text ?? ""
-        product.image = productImageView.image?.jpegData(compressionQuality: 0.7)
-        product.value = valueTextField.text?.getDoubleValue() ?? 0
-        product.isCreditCard = cardSwitch.isOn
-        vm.save(product: product) {
-            self.navigationController?.popToRootViewController(animated: true)
+        if let prod = productTextField.text, !prod.isEmpty,
+            let image = productImageView.image?.jpegData(compressionQuality: 0.7), !image.isEmpty, productImageView.image != UIImage(named: "placeholder"),
+            let prodValue = valueTextField.text, !prodValue.isEmpty,
+            !(stateTextField.text?.isEmpty ?? true) {
+                let product = Product()
+                product.name = prod
+                product.image = image
+                product.value = prodValue.getDoubleValue()
+                product.isCreditCard = cardSwitch.isOn
+                vm.save(product: product) {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+        } else {
+            let alert = UIAlertController(title: "Alerta", message: "É necessário preencher todos os campos", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            
+            present(alert, animated: true, completion: nil)
         }
     }
 

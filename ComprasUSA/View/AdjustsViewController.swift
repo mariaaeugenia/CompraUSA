@@ -5,9 +5,9 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
 
     //MARK: -
     //MARK: - OUTLETS
-    private var dolarStackView: UIStackView!
-    private var dolarLabel: UILabel!
-    private var dolarValueTextField: TextField!
+    private var dollarStackView: UIStackView!
+    private var dollarLabel: UILabel!
+    private var dollarValueTextField: TextField!
     private var iofStackView: UIStackView!
     private var iofLabel: UILabel!
     private var iofTextField: TextField!
@@ -21,10 +21,20 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
     
     //MARK: -
     //MARK: - VIEW CODE LIFE CYCLE
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let dollar = dollarValueTextField.text, !dollar.isEmpty {
+            Constants.Settings.updateDollarCurrency(with: dollar)
+        }
+        if let iof = iofTextField.text, !iof.isEmpty {
+            Constants.Settings.updateIOF(with: iof)
+        }
+    }
     override func prepareViews() {
-        dolarStackView = .init()
-        dolarValueTextField = .init()
-        dolarLabel = .init()
+        dollarStackView = .init()
+        dollarValueTextField = .init()
+        dollarLabel = .init()
         iofStackView = .init()
         iofTextField = .init()
         iofLabel = .init()
@@ -35,9 +45,9 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
     }
     
     override func addViewHierarchy() {
-        dolarStackView.addArrangedSubviews([
-            dolarLabel,
-            dolarValueTextField
+        dollarStackView.addArrangedSubviews([
+            dollarLabel,
+            dollarValueTextField
         ])
         
         iofStackView.addArrangedSubviews([
@@ -46,7 +56,7 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
         ])
         
         dolarIofStackView.addArrangedSubviews([
-            dolarStackView,
+            dollarStackView,
             iofStackView
         ])
         
@@ -60,7 +70,7 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
     
     override func setupConstraints() {
         
-        dolarValueTextField.snp.makeConstraints { make in
+        dollarValueTextField.snp.makeConstraints { make in
             make.width.equalTo(view.frame.width*0.3)
             make.height.equalTo(40)
         }
@@ -106,12 +116,12 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
     }
     
     private func configureDolarViews() {
-        dolarLabel.text = "Cotação do dólar (R$):"
-        dolarLabel.textAlignment = .right
+        dollarLabel.text = "Cotação do dólar (R$):"
+        dollarLabel.textAlignment = .right
         
-        dolarValueTextField.text = Constants.Settings.dollarCurrency
-        dolarValueTextField.textAlignment = .right
-        dolarValueTextField.keyboardType = .decimalPad
+        dollarValueTextField.text = Constants.Settings.dollarCurrency
+        dollarValueTextField.textAlignment = .right
+        dollarValueTextField.keyboardType = .decimalPad
     }
     
     private func configureIOFViews() {
@@ -124,10 +134,10 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
     }
     
     private func configureStackView() {
-        dolarStackView.alignment = .center
-        dolarStackView.distribution = .fill
-        dolarStackView.axis = .horizontal
-        dolarStackView.spacing = 10
+        dollarStackView.alignment = .center
+        dollarStackView.distribution = .fill
+        dollarStackView.axis = .horizontal
+        dollarStackView.spacing = 10
         
         iofStackView.alignment = .center
         iofStackView.distribution = .fill

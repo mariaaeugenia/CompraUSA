@@ -11,23 +11,39 @@ import Foundation
 
 struct Constants {
     
+    struct SettingsBundleKeys {
+        static let Dollar_Currency = "DOLLAR_CURRENCY"
+        static let IOF = "IOF"
+    }
+    
     struct Settings {
+
         static var dollarCurrency: String {
             get {
-                guard let stringURL = Bundle.main.infoDictionary?["DOLLAR_CURRENCY"] as? String else {
-                    fatalError("Set your DOLLAR_CURRENCY on info.plist")
+                guard let dollarCurrency = UserDefaults.standard.string(forKey: SettingsBundleKeys.Dollar_Currency) else  {
+                    UserDefaults.standard.set("5.0", forKey: SettingsBundleKeys.Dollar_Currency)
+                    return "5.0"
                 }
-                return stringURL
+                return dollarCurrency
             }
         }
         
         static var iof: String {
             get {
-                guard let stringURL = Bundle.main.infoDictionary?["IOF"] as? String else {
-                    fatalError("Set your IOF on info.plist")
+                guard let iof = UserDefaults.standard.string(forKey: SettingsBundleKeys.IOF) else  {
+                    UserDefaults.standard.set("6.38", forKey: SettingsBundleKeys.IOF)
+                    return "6.38"
                 }
-                return stringURL
+                return iof
             }
+        }
+        
+        static func updateDollarCurrency(with currency: String) {
+            UserDefaults.standard.set(currency, forKey: SettingsBundleKeys.Dollar_Currency)
+        }
+        
+        static func updateIOF(with currency: String) {
+            UserDefaults.standard.set(currency, forKey: SettingsBundleKeys.IOF)
         }
     }
 }
