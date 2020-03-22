@@ -148,7 +148,7 @@
 		54CB05A4240F2B9A00FD7184 = {
 			isa = PBXGroup;
 			children = (
-				54CB05AF240F2B9A00FD7184 /* MyShoppingList */,
+				54CB05AF240F2B9A00FD7184 /* ComprasUSA */,
 				54CB05AE240F2B9A00FD7184 /* Products */,
 				E4CCD794B5C1592CD2D32DF9 /* Pods */,
 				A784C8BDD35BD616D516F21F /* Frameworks */,
@@ -163,7 +163,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		54CB05AF240F2B9A00FD7184 /* MyShoppingList */ = {
+		54CB05AF240F2B9A00FD7184 /* ComprasUSA */ = {
 			isa = PBXGroup;
 			children = (
 				54AD6EC82424440E0011924D /* Resources */,
@@ -179,7 +179,7 @@
 				54CB05BB240F2B9D00FD7184 /* LaunchScreen.storyboard */,
 				54CB05BE240F2B9D00FD7184 /* Info.plist */,
 			);
-			path = MyShoppingList;
+			path = ComprasUSA;
 			sourceTree = "<group>";
 		};
 		54CB05CA240F322000FD7184 /* View */ = {
@@ -246,9 +246,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		54CB05AC240F2B9A00FD7184 /* MyShoppingList */ = {
+		54CB05AC240F2B9A00FD7184 /* ComprasUSA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54CB05C1240F2B9D00FD7184 /* Build configuration list for PBXNativeTarget "MyShoppingList" */;
+			buildConfigurationList = 54CB05C1240F2B9D00FD7184 /* Build configuration list for PBXNativeTarget "ComprasUSA" */;
 			buildPhases = (
 				D76395570B87BD3C8D4DF129 /* [CP] Check Pods Manifest.lock */,
 				54CB05A9240F2B9A00FD7184 /* Sources */,
@@ -260,7 +260,7 @@
 			);
 			dependencies = (
 			);
-			name = MyShoppingList;
+			name = ComprasUSA;
 			productName = MyShoppingList;
 			productReference = 54CB05AD240F2B9A00FD7184 /* ComprasUSA.app */;
 			productType = "com.apple.product-type.application";
@@ -293,7 +293,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54CB05AC240F2B9A00FD7184 /* MyShoppingList */,
+				54CB05AC240F2B9A00FD7184 /* ComprasUSA */,
 			);
 		};
 /* End PBXProject section */
@@ -523,7 +523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2479GFA4C;
-				INFOPLIST_FILE = MyShoppingList/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ComprasUSA/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,7 +542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2479GFA4C;
-				INFOPLIST_FILE = MyShoppingList/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ComprasUSA/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,7 +566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54CB05C1240F2B9D00FD7184 /* Build configuration list for PBXNativeTarget "MyShoppingList" */ = {
+		54CB05C1240F2B9D00FD7184 /* Build configuration list for PBXNativeTarget "ComprasUSA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54CB05C2240F2B9D00FD7184 /* Debug */,
