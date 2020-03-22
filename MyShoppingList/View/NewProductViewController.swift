@@ -3,17 +3,17 @@ import UIKit
 import SnapKit
 import AVFoundation
 
-class NewProductViewController: MSLViewController<NewProductViewModel> {
+class NewProductViewController: ViewController<NewProductViewModel> {
 
     //MARK: -
     //MARK: - OUTLETS
-    private var productTextField: MSLTextField!
+    private var productTextField: TextField!
     private var productImageView: UIImageView!
     private var stateStackView: UIStackView!
-    private var stateTextField: MSLTextField!
+    private var stateTextField: TextField!
     private var addStateButton: UIButton!
     private var valueStackView: UIStackView!
-    private var valueTextField: MSLTextField!
+    private var valueTextField: TextField!
     private var switchLabel: UILabel!
     private var cardSwitch: UISwitch!
     private var saveButton: UIButton!
@@ -193,7 +193,7 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
         let product = Product()
         product.id = UUID().uuidString
         product.name = productTextField.text ?? ""
-        product.image = productImageView.image?.pngData()
+        product.image = productImageView.image?.jpegData(compressionQuality: 0.7)
         product.value = valueTextField.text?.getDoubleValue() ?? 0
         product.isCreditCard = cardSwitch.isOn
         vm.save(product: product) {
@@ -267,9 +267,21 @@ extension NewProductViewController: UIImagePickerControllerDelegate, UINavigatio
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let imageUrl = info[.phAsset] as? NSURL,
+            let imageName = imageUrl.lastPathComponent,
+            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            
+            let photoURL = NSURL(fileURLWithPath: documentDirectory)
+            let localPath = photoURL.appendingPathComponent(imageName)
+            print("LOCAL PATH: \(String(describing: localPath?.absoluteString))")
+            
+        }
+        
         if let image = info[.originalImage] as? UIImage {
             self.productImageView.image = image
         }
+        
         dismiss(animated: true, completion: nil)
     }
 }

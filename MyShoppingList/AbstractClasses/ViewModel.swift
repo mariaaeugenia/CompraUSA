@@ -2,6 +2,6 @@
 import Foundation
 
 
-protocol MSLViewModel: class {
+protocol ViewModel: class {
     init()
 }

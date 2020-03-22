@@ -1,7 +1,7 @@
 
 import UIKit
 
-class TotalShoppingViewController: MSLViewController<TotalShoppingViewModel> {
+class TotalShoppingViewController: ViewController<TotalShoppingViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()

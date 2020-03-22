@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StateTableViewCell: MSLTableViewCell {
+class StateTableViewCell: TableViewCell {
     
     private var stackView: UIStackView!
     private var stateLabel: UILabel!

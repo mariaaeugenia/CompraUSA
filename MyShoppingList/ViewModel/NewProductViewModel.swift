@@ -1,7 +1,8 @@
 
 import Foundation
+import UIKit
 
-class NewProductViewModel: MSLViewModel {
+class NewProductViewModel: ViewModel {
     
     var states = [State]()
     var selectedState = State()
@@ -19,6 +20,7 @@ class NewProductViewModel: MSLViewModel {
         let newProduct = product
         newProduct.state = selectedState
         manager.save(object: newProduct)
+        completion()
     }
     
     private func getState() {

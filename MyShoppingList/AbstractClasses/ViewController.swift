@@ -1,8 +1,8 @@
 
 import UIKit
 
-class MSLTableViewController<T: MSLViewModel>: UITableViewController, ViewSetup {
-
+class ViewController<T: ViewModel>: UIViewController, ViewSetup {
+    
     var vm: T
     
     convenience init(_ viewModel: T) {
@@ -24,10 +24,9 @@ class MSLTableViewController<T: MSLViewModel>: UITableViewController, ViewSetup 
         super.viewDidLoad()
         setup()
     }
-    
+
     func prepareViews() {}
     func addViewHierarchy() {}
     func setupConstraints() {}
     func configureViews() {}
-    func configureBindings() {}
 }

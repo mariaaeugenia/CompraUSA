@@ -1,7 +1,7 @@
 
 import Foundation
 
-class TotalShoppingViewModel: MSLViewModel {
+class TotalShoppingViewModel: ViewModel {
     
     required init() {}
 }

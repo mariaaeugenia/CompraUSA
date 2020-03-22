@@ -16,13 +16,13 @@
 		546505DA242045A10046DA36 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505D7242045A00046DA36 /* ProductRepository.swift */; };
 		546505DB242045A10046DA36 /* StateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505D8242045A10046DA36 /* StateRepository.swift */; };
 		546505DD242045DE0046DA36 /* Resulst+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505DC242045DE0046DA36 /* Resulst+Extensions.swift */; };
-		546505DF242052750046DA36 /* MSLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505DE242052750046DA36 /* MSLViewModel.swift */; };
+		546505DF242052750046DA36 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505DE242052750046DA36 /* ViewModel.swift */; };
 		546505E1242055960046DA36 /* TotalShoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505E0242055960046DA36 /* TotalShoppingViewModel.swift */; };
 		546505E3242056630046DA36 /* AdjustsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505E2242056630046DA36 /* AdjustsViewModel.swift */; };
 		546505E5242056860046DA36 /* ShoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505E4242056860046DA36 /* ShoppingViewModel.swift */; };
 		546505E72420585B0046DA36 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546505E62420585B0046DA36 /* UIWindow+Extensions.swift */; };
 		54AD6ECA2424441E0011924D /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6EC92424441E0011924D /* PermissionManager.swift */; };
-		54AD6ECD24245D200011924D /* MSLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6ECC24245D200011924D /* MSLTextField.swift */; };
+		54AD6ECD24245D200011924D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6ECC24245D200011924D /* TextField.swift */; };
 		54AD6F042426C1CA0011924D /* StateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6F032426C1CA0011924D /* StateTableViewCell.swift */; };
 		54CB05B1240F2B9A00FD7184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05B0240F2B9A00FD7184 /* AppDelegate.swift */; };
 		54CB05B5240F2B9A00FD7184 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05B4240F2B9A00FD7184 /* MainViewController.swift */; };
@@ -34,9 +34,9 @@
 		54CB05CC240F352800FD7184 /* NewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05CB240F352800FD7184 /* NewProductViewController.swift */; };
 		54CB05CF240F36AC00FD7184 /* ViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05CE240F36AC00FD7184 /* ViewSetup.swift */; };
 		54CB05D2240F370C00FD7184 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05D1240F370C00FD7184 /* UIView+Extensions.swift */; };
-		54CB05D5240F374A00FD7184 /* MSLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05D4240F374A00FD7184 /* MSLViewController.swift */; };
-		54CB05D7240F37A600FD7184 /* MSLTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05D6240F37A600FD7184 /* MSLTableViewController.swift */; };
-		54CB05D9240F381500FD7184 /* MSLTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05D8240F381500FD7184 /* MSLTableViewCell.swift */; };
+		54CB05D5240F374A00FD7184 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05D4240F374A00FD7184 /* ViewController.swift */; };
+		54CB05D7240F37A600FD7184 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05D6240F37A600FD7184 /* TableViewController.swift */; };
+		54CB05D9240F381500FD7184 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05D8240F381500FD7184 /* TableViewCell.swift */; };
 		8C0E0CF449D75173B9163CAF /* Pods_MyShoppingList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E341C3E6BCD7EF335D76980 /* Pods_MyShoppingList.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,15 +51,15 @@
 		546505D7242045A00046DA36 /* ProductRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		546505D8242045A10046DA36 /* StateRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateRepository.swift; sourceTree = "<group>"; };
 		546505DC242045DE0046DA36 /* Resulst+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resulst+Extensions.swift"; sourceTree = "<group>"; };
-		546505DE242052750046DA36 /* MSLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLViewModel.swift; sourceTree = "<group>"; };
+		546505DE242052750046DA36 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		546505E0242055960046DA36 /* TotalShoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalShoppingViewModel.swift; sourceTree = "<group>"; };
 		546505E2242056630046DA36 /* AdjustsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustsViewModel.swift; sourceTree = "<group>"; };
 		546505E4242056860046DA36 /* ShoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewModel.swift; sourceTree = "<group>"; };
 		546505E62420585B0046DA36 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		54AD6EC92424441E0011924D /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
-		54AD6ECC24245D200011924D /* MSLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLTextField.swift; sourceTree = "<group>"; };
+		54AD6ECC24245D200011924D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		54AD6F032426C1CA0011924D /* StateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTableViewCell.swift; sourceTree = "<group>"; };
-		54CB05AD240F2B9A00FD7184 /* MyShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54CB05AD240F2B9A00FD7184 /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54CB05B0240F2B9A00FD7184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54CB05B4240F2B9A00FD7184 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		54CB05B9240F2B9D00FD7184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,9 +71,9 @@
 		54CB05CB240F352800FD7184 /* NewProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewController.swift; sourceTree = "<group>"; };
 		54CB05CE240F36AC00FD7184 /* ViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSetup.swift; sourceTree = "<group>"; };
 		54CB05D1240F370C00FD7184 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		54CB05D4240F374A00FD7184 /* MSLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLViewController.swift; sourceTree = "<group>"; };
-		54CB05D6240F37A600FD7184 /* MSLTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLTableViewController.swift; sourceTree = "<group>"; };
-		54CB05D8240F381500FD7184 /* MSLTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSLTableViewCell.swift; sourceTree = "<group>"; };
+		54CB05D4240F374A00FD7184 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		54CB05D6240F37A600FD7184 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		54CB05D8240F381500FD7184 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7E341C3E6BCD7EF335D76980 /* Pods_MyShoppingList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyShoppingList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DF2C546845DF079105D068 /* Pods-MyShoppingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShoppingList.debug.xcconfig"; path = "Target Support Files/Pods-MyShoppingList/Pods-MyShoppingList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,7 +132,7 @@
 		54AD6ECB24245D0D0011924D /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				54AD6ECC24245D200011924D /* MSLTextField.swift */,
+				54AD6ECC24245D200011924D /* TextField.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -158,7 +158,7 @@
 		54CB05AE240F2B9A00FD7184 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54CB05AD240F2B9A00FD7184 /* MyShoppingList.app */,
+				54CB05AD240F2B9A00FD7184 /* ComprasUSA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,10 +218,10 @@
 		54CB05D3240F372400FD7184 /* AbstractClasses */ = {
 			isa = PBXGroup;
 			children = (
-				546505DE242052750046DA36 /* MSLViewModel.swift */,
-				54CB05D4240F374A00FD7184 /* MSLViewController.swift */,
-				54CB05D6240F37A600FD7184 /* MSLTableViewController.swift */,
-				54CB05D8240F381500FD7184 /* MSLTableViewCell.swift */,
+				546505DE242052750046DA36 /* ViewModel.swift */,
+				54CB05D4240F374A00FD7184 /* ViewController.swift */,
+				54CB05D6240F37A600FD7184 /* TableViewController.swift */,
+				54CB05D8240F381500FD7184 /* TableViewCell.swift */,
 			);
 			path = AbstractClasses;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 			);
 			name = MyShoppingList;
 			productName = MyShoppingList;
-			productReference = 54CB05AD240F2B9A00FD7184 /* MyShoppingList.app */;
+			productReference = 54CB05AD240F2B9A00FD7184 /* ComprasUSA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -280,7 +280,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 54CB05A8240F2B9A00FD7184 /* Build configuration list for PBXProject "MyShoppingList" */;
+			buildConfigurationList = 54CB05A8240F2B9A00FD7184 /* Build configuration list for PBXProject "ComprasUSA" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -360,15 +360,15 @@
 				54CB05B5240F2B9A00FD7184 /* MainViewController.swift in Sources */,
 				546505C5241EBF4B0046DA36 /* StackView+Extensions.swift in Sources */,
 				54CB05C9240F2D2400FD7184 /* TotalShoppingViewController.swift in Sources */,
-				54AD6ECD24245D200011924D /* MSLTextField.swift in Sources */,
-				546505DF242052750046DA36 /* MSLViewModel.swift in Sources */,
-				54CB05D7240F37A600FD7184 /* MSLTableViewController.swift in Sources */,
+				54AD6ECD24245D200011924D /* TextField.swift in Sources */,
+				546505DF242052750046DA36 /* ViewModel.swift in Sources */,
+				54CB05D7240F37A600FD7184 /* TableViewController.swift in Sources */,
 				54CB05CF240F36AC00FD7184 /* ViewSetup.swift in Sources */,
-				54CB05D9240F381500FD7184 /* MSLTableViewCell.swift in Sources */,
+				54CB05D9240F381500FD7184 /* TableViewCell.swift in Sources */,
 				54CB05C5240F2CE300FD7184 /* ShoppingTableViewController.swift in Sources */,
 				54CB05CC240F352800FD7184 /* NewProductViewController.swift in Sources */,
 				546505DD242045DE0046DA36 /* Resulst+Extensions.swift in Sources */,
-				54CB05D5240F374A00FD7184 /* MSLViewController.swift in Sources */,
+				54CB05D5240F374A00FD7184 /* ViewController.swift in Sources */,
 				54CB05B1240F2B9A00FD7184 /* AppDelegate.swift in Sources */,
 				546505DB242045A10046DA36 /* StateRepository.swift in Sources */,
 				546505CB241EF3C50046DA36 /* NewProductViewModel.swift in Sources */,
@@ -528,8 +528,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.meteixeira.MyShoppingList;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.meteixeira.ComprasUSA;
+				PRODUCT_NAME = ComprasUSA;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -547,8 +547,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.meteixeira.MyShoppingList;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.meteixeira.ComprasUSA;
+				PRODUCT_NAME = ComprasUSA;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -557,7 +557,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		54CB05A8240F2B9A00FD7184 /* Build configuration list for PBXProject "MyShoppingList" */ = {
+		54CB05A8240F2B9A00FD7184 /* Build configuration list for PBXProject "ComprasUSA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54CB05BF240F2B9D00FD7184 /* Debug */,

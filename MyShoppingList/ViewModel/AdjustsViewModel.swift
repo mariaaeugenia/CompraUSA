@@ -7,7 +7,7 @@ protocol AdjustPresentable: class {
     func reloadTableView()
 }
 
-class AdjustsViewModel: MSLViewModel {
+class AdjustsViewModel: ViewModel {
     
     let stateRepository = StateReposioty()
     var states = [State]()

@@ -1,7 +1,7 @@
 
 import UIKit
 
-open class MSLTableViewCell: UITableViewCell, ViewSetup {
+open class TableViewCell: UITableViewCell, ViewSetup {
     
     override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

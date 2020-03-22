@@ -1,16 +1,16 @@
 
 import UIKit
 
-class AdjustsViewController: MSLViewController<AdjustsViewModel> {
+class AdjustsViewController: ViewController<AdjustsViewModel> {
 
     //MARK: -
     //MARK: - OUTLETS
     private var dolarStackView: UIStackView!
     private var dolarLabel: UILabel!
-    private var dolarValueTextField: MSLTextField!
+    private var dolarValueTextField: TextField!
     private var iofStackView: UIStackView!
     private var iofLabel: UILabel!
-    private var iofTextField: MSLTextField!
+    private var iofTextField: TextField!
     private var dolarIofStackView: UIStackView!
     private var titleLabel: UILabel!
     private var tableView: UITableView!

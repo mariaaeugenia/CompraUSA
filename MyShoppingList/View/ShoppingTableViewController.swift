@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ShoppingTableViewController: MSLTableViewController<ShoppingViewModel> {
+class ShoppingTableViewController: TableViewController<ShoppingViewModel> {
     
 
     override func viewDidLoad() {

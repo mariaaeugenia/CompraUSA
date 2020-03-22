@@ -1,5 +1,5 @@
 //
-//  MSLTextField.swift
+//  TextField.swift
 //  MyShoppingList
 //
 //  Created by Maria Eugênia Pereira Teixeira on 19/03/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MSLTextField: UITextField {
+class TextField: UITextField {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
