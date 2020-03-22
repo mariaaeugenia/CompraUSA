@@ -182,6 +182,7 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
         
         alert.addTextField { textField in
             textField.placeholder = "Imposto"
+            textField.keyboardType = .decimalPad
             self.taxTextField = textField
         }
         

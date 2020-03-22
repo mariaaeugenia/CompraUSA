@@ -3,6 +3,8 @@ import UIKit
 
 class TotalShoppingViewController: ViewController<TotalShoppingViewModel> {
     
+    //MARK: -
+    //MARK: - OUTLETS
     private var mainStackView: UIStackView!
     private var totalDollarStackView: UIStackView!
     private var totalDolarTitleLabel: UILabel!
@@ -10,6 +12,13 @@ class TotalShoppingViewController: ViewController<TotalShoppingViewModel> {
     private var totalRealStackView: UIStackView!
     private var totalRealTitleLabel: UILabel!
     private var totalRealLabel: UILabel!
+    
+    //MARK: -
+    //MARK: - VIEW CODE LIFE CYCLE
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        vm.viewModelLoad()
+    }
     
     override func prepareViews() {
         mainStackView = .init()
@@ -53,6 +62,8 @@ class TotalShoppingViewController: ViewController<TotalShoppingViewModel> {
     
     override func configureViews() {
         view.backgroundColor = .white
+        vm = .init()
+        vm.presenter = self
         configureMainStackView()
         configureDollar()
         configureReal()
@@ -68,7 +79,7 @@ class TotalShoppingViewController: ViewController<TotalShoppingViewModel> {
     func configureDollar() {
         totalDolarTitleLabel.text = "Total em U$:"
          
-        totalDolarLabel.text = "1000"
+        totalDolarLabel.text = "0"
         totalDolarLabel.textColor = .red
         totalDolarLabel.font = UIFont.systemFont(ofSize: 50, weight: .bold)
         
@@ -81,7 +92,7 @@ class TotalShoppingViewController: ViewController<TotalShoppingViewModel> {
     func configureReal() {
         totalRealTitleLabel.text = "Total em R$:"
         
-        totalRealLabel.text = "5000"
+        totalRealLabel.text = "0"
         totalRealLabel.textColor = .systemGreen
         totalRealLabel.font = UIFont.systemFont(ofSize: 50, weight: .bold)
         
@@ -90,5 +101,16 @@ class TotalShoppingViewController: ViewController<TotalShoppingViewModel> {
         totalRealStackView.distribution = .fillProportionally
         totalRealStackView.spacing = 5
 
+    }
+}
+
+extension TotalShoppingViewController: TotalShoppingPresentable {
+    
+    func presentTotalDolar(total: String) {
+        totalDolarLabel.text = total
+    }
+    
+    func presentTotalReal(total: String) {
+        totalRealLabel.text = total
     }
 }

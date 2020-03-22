@@ -237,14 +237,19 @@ class NewProductViewController: ViewController<NewProductViewModel> {
     private func showActionSheetForImagePicker() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Câmera", style: .default, handler: { (alert:UIAlertAction!) -> Void in
-            if self.permissionManager.hasCameraPermission() {
-                self.openImagePicker(for: .camera)
+            DispatchQueue.main.async {
+                if self.permissionManager.hasCameraPermission() {
+                    self.openImagePicker(for: .camera)
+                }
             }
         }))
         actionSheet.addAction(UIAlertAction(title: "Galeria", style: .default, handler: { (alert:UIAlertAction!) -> Void in
-            if self.permissionManager.hasPhotoLibraryPermission() {
-                self.openImagePicker(for: .photoLibrary)
+            DispatchQueue.main.async {
+                if self.permissionManager.hasPhotoLibraryPermission() {
+                    self.openImagePicker(for: .photoLibrary)
+                }
             }
+            
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         self.navigationController?.present(actionSheet, animated: true, completion: nil)

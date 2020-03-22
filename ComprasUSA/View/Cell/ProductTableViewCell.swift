@@ -79,7 +79,7 @@ class ProductTableViewCell: TableViewCell {
             productImage.image = UIImage(named: "placeholder")
         }
         productName.text = prod.name
-        productValue.text = prod.value.getCurrency()
+        productValue.text = prod.value.getDollarCurrency()
     }
     
 }
