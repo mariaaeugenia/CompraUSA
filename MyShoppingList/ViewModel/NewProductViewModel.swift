@@ -34,4 +34,8 @@ class NewProductViewModel: MSLViewModel {
         }
     }
     
+    func getStateNameSelected() -> String {
+        return selectedState.name
+    }
+    
 }

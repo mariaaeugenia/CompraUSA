@@ -19,8 +19,6 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
     private var stateTextField: UITextField!
     private var taxTextField: UITextField!
     
-    var viewModel = AdjustsViewModel()
-    
     //MARK: -
     //MARK: - VIEW CODE LIFE CYCLE
     override func prepareViews() {
@@ -98,6 +96,7 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
     
     override func configureViews() {
         view.backgroundColor = .white
+        vm.presenter = self
         configureDolarViews()
         configureIOFViews()
         configureStackView()
@@ -146,6 +145,10 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
     }
     
     private func confirgureTableView() {
+        tableView.register(StateTableViewCell.self, forCellReuseIdentifier: "CELL")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
     }
     
@@ -155,6 +158,8 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
         addStateButton.addTarget(self, action: #selector(addStateButtonTapped(_ :)), for: .touchUpInside)
     }
     
+    //MARK: -
+    //MARK: - BUTTON ACTIONS
     @objc func addStateButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Adicionar estado", message: "", preferredStyle: .alert)
         
@@ -173,12 +178,46 @@ class AdjustsViewController: MSLViewController<AdjustsViewModel> {
         present(alert, animated: true, completion: nil)
     }
     
+    //MARK: -
+    //MARK: - SAVE STATE
     func saveState() {
         if let state = stateTextField.text, !state.isEmpty,
             let tax = taxTextField.text, !tax.isEmpty {
-            viewModel.saveState(state: state, tax: tax)
+            vm.saveState(state: state, tax: tax)
         }
     }
 
 }
 
+extension AdjustsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return vm.statesNumberOfRows
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return vm.cellForRow(tableView: tableView, at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let modifyAction = UIContextualAction(style: .normal, title: "Deletar", handler: { [weak self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            self?.vm.deleteState(at: indexPath.row)
+            success(true)
+        })
+        modifyAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [modifyAction])
+    }
+}
+
+extension AdjustsViewController: AdjustPresentable {
+    
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+    
+    func deleteRow(at index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+}

@@ -203,7 +203,7 @@ class NewProductViewController: MSLViewController<NewProductViewModel> {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         vm.didSelectState(at: stateIndex)
-        stateTextField.text = vm.selectedState.name
+        stateTextField.text = vm.getStateNameSelected()
         view.endEditing(true)
     }
     
