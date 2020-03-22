@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>MyShoppingList deseja usar sua câmera para tirar foto do produto</string>
+	<string>CompraUSA deseja usar sua câmera para tirar foto do produto</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>MyShoppingList desejater acesso à sua biblioteca de fotos para salvar a foto do produto</string>
+	<string>CompraUSA desejater acesso à sua biblioteca de fotos para salvar a foto do produto</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

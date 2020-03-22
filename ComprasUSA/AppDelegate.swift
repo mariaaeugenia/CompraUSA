@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MyShoppingList
+//  CompraUSA
 //
 //  Created by Maria Eugênia Pereira Teixeira on 03/03/20.
 //  Copyright © 2020 Maria Eugênia Pereira Teixeira. All rights reserved.

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_MyShoppingListVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_MyShoppingListVersionString[];
+FOUNDATION_EXPORT double Pods_ComprasUSAVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_ComprasUSAVersionString[];
 
