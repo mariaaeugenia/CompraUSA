@@ -26,6 +26,7 @@
 		54AD6F042426C1CA0011924D /* StateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6F032426C1CA0011924D /* StateTableViewCell.swift */; };
 		54AD6F062426F1C00011924D /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6F052426F1C00011924D /* ProductTableViewCell.swift */; };
 		54AD6F082427003B0011924D /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6F072427003B0011924D /* Double+Extensions.swift */; };
+		54AD6F0A2427A8500011924D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD6F092427A8500011924D /* Constants.swift */; };
 		54CB05B1240F2B9A00FD7184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05B0240F2B9A00FD7184 /* AppDelegate.swift */; };
 		54CB05B5240F2B9A00FD7184 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB05B4240F2B9A00FD7184 /* MainViewController.swift */; };
 		54CB05BA240F2B9D00FD7184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54CB05B9240F2B9D00FD7184 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		54AD6F032426C1CA0011924D /* StateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTableViewCell.swift; sourceTree = "<group>"; };
 		54AD6F052426F1C00011924D /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		54AD6F072427003B0011924D /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		54AD6F092427A8500011924D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		54CB05AD240F2B9A00FD7184 /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54CB05B0240F2B9A00FD7184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54CB05B4240F2B9A00FD7184 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				54AD6ECB24245D0D0011924D /* CustomViews */,
 				54AD6EC92424441E0011924D /* PermissionManager.swift */,
+				54AD6F092427A8500011924D /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				54CB05D7240F37A600FD7184 /* TableViewController.swift in Sources */,
 				54CB05CF240F36AC00FD7184 /* ViewSetup.swift in Sources */,
 				54CB05D9240F381500FD7184 /* TableViewCell.swift in Sources */,
+				54AD6F0A2427A8500011924D /* Constants.swift in Sources */,
 				54CB05C5240F2CE300FD7184 /* ShoppingTableViewController.swift in Sources */,
 				54CB05CC240F352800FD7184 /* NewProductViewController.swift in Sources */,
 				546505DD242045DE0046DA36 /* Resulst+Extensions.swift in Sources */,
@@ -531,7 +535,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2479GFA4C;
+				DOLLAR_CURRENCY = 5.00;
 				INFOPLIST_FILE = "$(SRCROOT)/ComprasUSA/Info.plist";
+				IOF = 6.38;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -550,7 +556,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2479GFA4C;
+				DOLLAR_CURRENCY = 5.00;
 				INFOPLIST_FILE = "$(SRCROOT)/ComprasUSA/Info.plist";
+				IOF = 6.38;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

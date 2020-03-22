@@ -45,5 +45,9 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>DOLLAR_CURRENCY</key>
+	<string>$(DOLLAR_CURRENCY)</string>
+	<key>IOF</key>
+	<string>$(IOF)</string>
 </dict>
 </plist>

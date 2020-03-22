@@ -156,6 +156,7 @@ class NewProductViewController: ViewController<NewProductViewModel> {
     
     private func configuereValue() {
         valueTextField.placeholder = "Valor (U$)"
+        valueTextField.keyboardType = .decimalPad
         switchLabel.text = "Cartão?"
         cardSwitch.isOn = true
         

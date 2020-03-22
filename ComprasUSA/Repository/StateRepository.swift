@@ -26,4 +26,8 @@ struct StateReposioty: Repository {
     }
     
     func update(object: State) {}
+    
+    func query(name: String) -> [State]? {
+        return nil
+    }
 }

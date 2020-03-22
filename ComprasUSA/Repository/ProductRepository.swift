@@ -19,12 +19,19 @@ struct ProductRepository: Repository {
     }
     
     func delete(object: Product) {
-        realm.delete(object)
+        try! realm.write {
+            realm.delete(object)
+        }
     }
     
     func update(object: Product) {
         try! realm.write {
             realm.add(object, update: .modified)
         }
+    }
+    
+    func query(name: String) -> [Product]? {
+        let products = realm.objects(Product.self).filter("state.name = '\(name)'")
+        return products.toArray(type: Product.self)
     }
 }

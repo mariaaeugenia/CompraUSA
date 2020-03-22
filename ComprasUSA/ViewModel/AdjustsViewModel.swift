@@ -43,7 +43,15 @@ class AdjustsViewModel: ViewModel {
         let state = states[index]
         states.remove(at: index)
         presenter?.deleteRow(at: index)
+        
+        let prodRepo = ProductRepository()
+        if let prodsToDelete = prodRepo.query(name: state.name) {
+            for prod in prodsToDelete {
+                prodRepo.delete(object: prod)
+            }
+        }
         stateRepository.delete(object: state)
+    
     }
     
     //MARK: -

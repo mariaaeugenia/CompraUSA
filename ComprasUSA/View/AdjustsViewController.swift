@@ -109,16 +109,18 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
         dolarLabel.text = "Cotação do dólar (R$):"
         dolarLabel.textAlignment = .right
         
+        dolarValueTextField.text = Constants.Settings.dollarCurrency
         dolarValueTextField.textAlignment = .right
-        dolarValueTextField.placeholder = "0.0"
+        dolarValueTextField.keyboardType = .decimalPad
     }
     
     private func configureIOFViews() {
         iofLabel.text = "IOF (%):"
         iofLabel.textAlignment = .right
         
+        iofTextField.text = Constants.Settings.iof
         iofTextField.textAlignment = .right
-        iofTextField.placeholder = "0.0"
+        iofTextField.keyboardType = .decimalPad
     }
     
     private func configureStackView() {
@@ -164,16 +166,20 @@ class AdjustsViewController: ViewController<AdjustsViewModel> {
         let alert = UIAlertController(title: "Adicionar estado", message: "", preferredStyle: .alert)
         
         alert.addTextField { textField in
+            textField.placeholder = "Nome do estado"
             self.stateTextField = textField
         }
         
         alert.addTextField { textField in
+            textField.placeholder = "Imposto"
             self.taxTextField = textField
         }
         
         alert.addAction(UIAlertAction(title: "Adicionar", style: .default, handler: { [weak self] _ in
             self?.saveState()
         }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
     }
