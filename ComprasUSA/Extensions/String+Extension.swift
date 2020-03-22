@@ -3,10 +3,7 @@ import Foundation
 
 extension String {
     func getDoubleValue() -> Double {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.minimumFractionDigits = 2
-        if let number = formatter.number(from: self), let double = Double(exactly: number) {
+        if let double = Double(self) {
             return double
         }
         return 0
