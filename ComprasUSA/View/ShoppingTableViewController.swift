@@ -3,9 +3,15 @@ import UIKit
 
 class ShoppingTableViewController: TableViewController<ShoppingViewModel> {
     
+    private var emptyStateLabel: UILabel!
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        vm.getProducts()
+        vm.viewModelLoad()
+    }
+    
+    override func prepareViews() {
+        emptyStateLabel = .init()
     }
     
     override func configureViews() {
@@ -14,6 +20,7 @@ class ShoppingTableViewController: TableViewController<ShoppingViewModel> {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         configureTableView()
+        configureLabel()
     }
     
     func configureNavigation() {
@@ -25,6 +32,12 @@ class ShoppingTableViewController: TableViewController<ShoppingViewModel> {
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 110
     }
+    
+    func configureLabel() {
+        emptyStateLabel.text = "Sua lista está vazia!"
+        emptyStateLabel.textColor = .black
+        emptyStateLabel.textAlignment = .center
+    }
 
     @objc func addButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.pushViewController(NewProductViewController(), animated: true)
@@ -33,11 +46,24 @@ class ShoppingTableViewController: TableViewController<ShoppingViewModel> {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if vm.productsNumberOfRows == 0 {
+            tableView.backgroundView = emptyStateLabel
+            return 0
+        }
+        tableView.backgroundView = nil
         return vm.productsNumberOfRows
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return vm.cellForRow(tableView: tableView, at: indexPath)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let prod = vm.didSelect(at: indexPath.row)
+        
+        let newProdVC = NewProductViewController()
+        newProdVC.vm.editProduct = prod
+        navigationController?.pushViewController(newProdVC, animated: true)
     }
 
 }

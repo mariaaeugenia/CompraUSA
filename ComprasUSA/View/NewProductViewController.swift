@@ -19,9 +19,16 @@ class NewProductViewController: ViewController<NewProductViewModel> {
     private var saveButton: UIButton!
     
     private var statePickerView: UIPickerView!
+    private var toolBar: UIToolbar!
     
     private var permissionManager = PermissionsManager()
     private var stateIndex = 0
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        vm.viewModelLoad()
+    }
     
     //MARK: -
     //MARK: - VIEW CODE LIFE CYCLE
@@ -39,6 +46,7 @@ class NewProductViewController: ViewController<NewProductViewModel> {
         valueStackView = .init()
         
         statePickerView = .init()
+        toolBar = .init()
     }
     
     override func addViewHierarchy() {
@@ -112,6 +120,7 @@ class NewProductViewController: ViewController<NewProductViewModel> {
     }
 
     override func configureViews() {
+        vm.presenter = self
         configureProductTextField()
         configureProductImageView()
         configureAddButton()
@@ -168,7 +177,7 @@ class NewProductViewController: ViewController<NewProductViewModel> {
     private func configureSaveButton() {
         saveButton.backgroundColor = .blue
         saveButton.setTitleColor(.white, for: .normal)
-        saveButton.setTitle("CADASTRAR", for: .normal)
+        saveButton.setTitle(vm.getButtonTitle(), for: .normal)
         saveButton.addTarget(self, action: #selector(saveButtonTapped(_ :)), for: .touchUpInside)
     }
     
@@ -176,11 +185,23 @@ class NewProductViewController: ViewController<NewProductViewModel> {
         statePickerView.backgroundColor = .white
         statePickerView.delegate = self
         statePickerView.dataSource = self
-        statePickerView.reloadAllComponents()
+        
+        toolBar.sizeToFit()
+        let doneButtonn = UIBarButtonItem(title: "Pronto", style: .plain, target: self, action: #selector(doneButtonTapped(_ :)))
+        toolBar.setItems([doneButtonn], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        stateTextField.inputAccessoryView = toolBar
     }
     
     //MARK: -
     //MARK: - BUTTON ACTIONS
+    @objc func doneButtonTapped(_ sender: UIButton) {
+        vm.didSelectState(at: stateIndex)
+        stateTextField.text = vm.getStateNameSelected()
+        view.endEditing(true)
+    }
+
+    
     @objc private func didTapProductImage(_ gestureRecognizer: UITapGestureRecognizer) {
         showActionSheetForImagePicker()
     }
@@ -191,7 +212,6 @@ class NewProductViewController: ViewController<NewProductViewModel> {
     
     @objc private func saveButtonTapped(_ sender: UIButton) {
         let product = Product()
-        product.id = UUID().uuidString
         product.name = productTextField.text ?? ""
         product.image = productImageView.image?.jpegData(compressionQuality: 0.7)
         product.value = valueTextField.text?.getDoubleValue() ?? 0
@@ -200,13 +220,7 @@ class NewProductViewController: ViewController<NewProductViewModel> {
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        vm.didSelectState(at: stateIndex)
-        stateTextField.text = vm.getStateNameSelected()
-        view.endEditing(true)
-    }
-    
+
     //MARK: -
     //MARK: - UIMAGEPICKER
     private func showActionSheetForImagePicker() {
@@ -299,5 +313,21 @@ extension NewProductViewController: PermissionDelegate {
         if granted {
             self.openImagePicker(for: .photoLibrary)
         }
+    }
+}
+
+extension NewProductViewController: NewProductPresentable {
+    func reloadPickerView() {
+        statePickerView.reloadAllComponents()
+    }
+    
+    func presentProduct(product: Product) {
+        productTextField.text = product.name
+        if let data = product.image {
+            productImageView.image = UIImage(data: data)
+        }
+        stateTextField.text = product.state?.name
+        valueTextField.text = "\(product.value)"
+        cardSwitch.setOn(product.isCreditCard, animated: false)
     }
 }

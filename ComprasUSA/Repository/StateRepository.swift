@@ -24,4 +24,6 @@ struct StateReposioty: Repository {
             realm.delete(object)
         }
     }
+    
+    func update(object: State) {}
 }

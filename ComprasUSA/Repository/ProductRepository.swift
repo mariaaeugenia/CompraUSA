@@ -21,4 +21,10 @@ struct ProductRepository: Repository {
     func delete(object: Product) {
         realm.delete(object)
     }
+    
+    func update(object: Product) {
+        try! realm.write {
+            realm.add(object, update: .modified)
+        }
+    }
 }

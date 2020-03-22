@@ -21,7 +21,11 @@ class ShoppingViewModel: ViewModel {
         getProducts()
     }
     
-    func getProducts() {
+    func viewModelLoad() {
+        getProducts()
+    }
+    
+    private func getProducts() {
         productRepository.fetch { [weak self] result in
             self?.products = result
             self?.presenter?.relodTableView()
@@ -35,5 +39,9 @@ class ShoppingViewModel: ViewModel {
         let prod = products[indexPath.row]
         cell.consigureCell(prod: prod)
         return cell
+    }
+    
+    func didSelect(at index: Int) -> Product {
+        return products[index]
     }
 }

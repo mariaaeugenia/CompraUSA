@@ -2,24 +2,60 @@
 import Foundation
 import UIKit
 
+enum ButtonStatus {
+    case save
+    case edit
+}
+
+protocol NewProductPresentable: class {
+    func reloadPickerView()
+    func presentProduct(product: Product)
+}
+
 class NewProductViewModel: ViewModel {
     
+    var editProduct: Product?
     var states = [State]()
     var selectedState = State()
+    var presenter: NewProductPresentable?
+    
+    var buttonStatus: ButtonStatus = .save
     
     var statesNumberOfRows: Int {
         get { return states.count }
     }
     
-    required init() {
+    required init() {}
+    
+    func viewModelLoad() {
         getState()
+        if let prod = editProduct {
+            editProduct = prod
+            presenter?.presentProduct(product: prod)
+        }
     }
     
     func save(product: Product, completion: (() -> Void)) {
         let manager = ProductRepository()
         let newProduct = product
-        newProduct.state = selectedState
-        manager.save(object: newProduct)
+        if let id = editProduct?.id {
+            newProduct.id = id
+        } else {
+            product.id = UUID().uuidString
+        }
+        if let state = editProduct?.state, selectedState.name.isEmpty {
+            newProduct.state = state
+        } else {
+            newProduct.state = selectedState
+        }
+        
+        switch buttonStatus {
+        case .save:
+             manager.save(object: newProduct)
+        case .edit:
+            manager.update(object: newProduct)
+        }
+
         completion()
     }
     
@@ -27,6 +63,7 @@ class NewProductViewModel: ViewModel {
         let manager = StateReposioty()
         manager.fetch { [weak self] result in
             self?.states = result
+            self?.presenter?.reloadPickerView()
         }
     }
     
@@ -38,6 +75,15 @@ class NewProductViewModel: ViewModel {
     
     func getStateNameSelected() -> String {
         return selectedState.name
+    }
+    
+    func getButtonTitle() -> String {
+        if editProduct != nil {
+            buttonStatus = .edit
+            return "EDITAR"
+        }
+        buttonStatus = .save
+        return "CADASTRAS"
     }
     
 }

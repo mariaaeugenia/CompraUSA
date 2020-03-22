@@ -70,7 +70,6 @@ class ProductTableViewCell: TableViewCell {
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
         stackView.spacing = 5
-        
     }
     
     func consigureCell(prod: Product) {
@@ -82,4 +81,5 @@ class ProductTableViewCell: TableViewCell {
         productName.text = prod.name
         productValue.text = prod.value.getCurrency()
     }
+    
 }
