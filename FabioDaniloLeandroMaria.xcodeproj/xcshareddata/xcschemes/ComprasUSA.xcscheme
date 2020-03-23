@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "54CB05AC240F2B9A00FD7184"
                BuildableName = "ComprasUSA.app"
-               BlueprintName = "ComprasUSA"
-               ReferencedContainer = "container:ComprasUSA.xcodeproj">
+               BlueprintName = "FabioDaniloLeandroMaria"
+               ReferencedContainer = "container:FabioDaniloLeandroMaria.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,8 +46,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54CB05AC240F2B9A00FD7184"
             BuildableName = "ComprasUSA.app"
-            BlueprintName = "ComprasUSA"
-            ReferencedContainer = "container:ComprasUSA.xcodeproj">
+            BlueprintName = "FabioDaniloLeandroMaria"
+            ReferencedContainer = "container:FabioDaniloLeandroMaria.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54CB05AC240F2B9A00FD7184"
             BuildableName = "ComprasUSA.app"
-            BlueprintName = "ComprasUSA"
-            ReferencedContainer = "container:ComprasUSA.xcodeproj">
+            BlueprintName = "FabioDaniloLeandroMaria"
+            ReferencedContainer = "container:FabioDaniloLeandroMaria.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

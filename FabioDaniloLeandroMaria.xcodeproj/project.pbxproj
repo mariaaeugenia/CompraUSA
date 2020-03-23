@@ -258,9 +258,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		54CB05AC240F2B9A00FD7184 /* ComprasUSA */ = {
+		54CB05AC240F2B9A00FD7184 /* FabioDaniloLeandroMaria */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54CB05C1240F2B9D00FD7184 /* Build configuration list for PBXNativeTarget "ComprasUSA" */;
+			buildConfigurationList = 54CB05C1240F2B9D00FD7184 /* Build configuration list for PBXNativeTarget "FabioDaniloLeandroMaria" */;
 			buildPhases = (
 				10252CF8EAF23D832A4660DD /* [CP] Check Pods Manifest.lock */,
 				54CB05A9240F2B9A00FD7184 /* Sources */,
@@ -272,7 +272,7 @@
 			);
 			dependencies = (
 			);
-			name = ComprasUSA;
+			name = FabioDaniloLeandroMaria;
 			productName = MyShoppingList;
 			productReference = 54CB05AD240F2B9A00FD7184 /* ComprasUSA.app */;
 			productType = "com.apple.product-type.application";
@@ -292,7 +292,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 54CB05A8240F2B9A00FD7184 /* Build configuration list for PBXProject "ComprasUSA" */;
+			buildConfigurationList = 54CB05A8240F2B9A00FD7184 /* Build configuration list for PBXProject "FabioDaniloLeandroMaria" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -305,7 +305,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54CB05AC240F2B9A00FD7184 /* ComprasUSA */,
+				54CB05AC240F2B9A00FD7184 /* FabioDaniloLeandroMaria */,
 			);
 		};
 /* End PBXProject section */
@@ -573,7 +573,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		54CB05A8240F2B9A00FD7184 /* Build configuration list for PBXProject "ComprasUSA" */ = {
+		54CB05A8240F2B9A00FD7184 /* Build configuration list for PBXProject "FabioDaniloLeandroMaria" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54CB05BF240F2B9D00FD7184 /* Debug */,
@@ -582,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54CB05C1240F2B9D00FD7184 /* Build configuration list for PBXNativeTarget "ComprasUSA" */ = {
+		54CB05C1240F2B9D00FD7184 /* Build configuration list for PBXNativeTarget "FabioDaniloLeandroMaria" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54CB05C2240F2B9D00FD7184 /* Debug */,
